@@ -76,6 +76,7 @@ a {
     color: var(--color-txt);
     font-size: var(--font-size-lg);
     font-weight: 900;
+    font-family: 'Cairo', sans-serif;
 }
 .logo i {
     color: var(--color-btn);
