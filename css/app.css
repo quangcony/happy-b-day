@@ -8,9 +8,11 @@
 
     --nav-height: 70px;
 
-    --inp-height: 80px;
-
     --shadow: 0 0 30px rgb(82 63 105 / 5%);
+
+    --font-size: 1rem;
+    --font-size-lg: 2rem;
+    --font-size-xl: 3rem;
 }
 
 .dark {
@@ -32,13 +34,8 @@ body {
     font-family: 'Potta One', cursive;
     background-color: var(--bg-body);
     color: var(--color-txt);
-    font-size: 16px;
     position: relative;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
+    overflow-x: hidden;
 }
 
 input {
@@ -56,30 +53,30 @@ a {
     text-decoration: none;
 }
 
-.nav-wrapper {
+nav {
     width: 100%;
     background-color: var(--bg-content);
     position: fixed;
     top: 0;
-    left: 0;
-    padding: 0 30px;
     box-shadow: var(--shadow);
     z-index: 99;
 }
-
-.nav {
-    height: var(--nav-height);
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 40px;
+    height: var(--nav-height);
 }
 
-.logo {
-    font-size: 2rem;
+.nav-logo {
+    font-size: var(--font-size-lg);
     font-weight: 900;
     color: var(--color-txt);
 }
-.logo i {
+.nav-logo i {
     color: var(--color-btn);
 }
 
@@ -107,7 +104,7 @@ a {
 }
 
 .darkmode-switch span i {
-    font-size: 2rem;
+    font-size: var(--font-size-lg);
     color: var(--color-txt);
 }
 
@@ -161,23 +158,25 @@ a {
     margin-top: 20px;
 }
 
-.loggon-screen input {
+.input-name, .input-password {
     width: 280px;
-    height: var(--inp-height);
-    font-size: 1.5rem;
+    height: 80px;
+    font-size: var(--font-size);
     text-align: center;
     outline: 0;
+    padding: 20px;
     border-radius: 10px;
 }
 
-.loggon-screen .btn {
+.btn {
     width: 280px;
-    height: var(--inp-height);
-    font-size: 1.5rem;
+    height: 80px;
+    font-size: var(--font-size);
     border-radius: 10px;
     background-color: var(--color-btn);
     display: grid;
     place-items: center;
+    overflow: hidden;
     cursor: pointer;
 }
 
@@ -226,7 +225,7 @@ a {
 }
 
 .birthday-greetings {
-    font-size: 14px;
+    font-size: var(--font-size);
 }
 
 .box-body {
@@ -269,17 +268,28 @@ a {
 
 /* medium screen */
 @media only screen and (max-width: 800px) {
-    .logo {
-        font-size: 1.35rem;
-    }
     :root {
-
         --nav-height: 50px;
 
-        --inp-height: 60px;
+        --font-size: 1rem;
+        --font-size-lg: 1.5rem;
+        --font-size-xl: 2rem;
+
     }
-    .decor {
-        display: none;
+
+    .darkmode-switch {
+        --width: 50px;
+        --height: 15px;
+    }
+
+    .input-name,
+    .input-password,
+    .btn {
+        height: 50px;
+    }
+
+    .screen {
+       max-width: unset;
     }
 }
 
