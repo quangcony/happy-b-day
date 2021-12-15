@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="shortcut icon" href="./images/cake.png" type="image/x-icon">
+    <!-- gg font -->
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
+    <!-- box icon -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <!-- css -->
+    <link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+
+    <!-- top nav -->
+    <div class="nav-wrapper">
+        <div class="container">
+            <div class="nav">
+                <a href="" class="logo">
+                    H<i class='bx bxs-cake bx-tada' ></i>ppy Birthday
+                </a>
+                <div class="darkmode-switch" id="darkmode-switch">
+                    <span>
+                        <i class='bx bxs-moon' ></i>
+                        <i class='bx bxs-sun' ></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end top nav -->
+
+    <!-- main content -->
+    <div class="main">
+        <div class="screen">
+            <!-- log on screen -->
+            <div class="loggon-screen active" id="loggon-screen">
+                <input type="text" placeholder="Your name" maxlength="11" class="input-name" id="input-name">
+                <input type="password" placeholder="Password" class="input-password" id="input-password">
+                <div class="btn" id="btn-loggon">
+                    Log on
+                </div>
+            </div>
+            <!-- end log on screen -->
+
+            <!-- main screen -->
+            <div class="main-screen" id="main-screen">
+                <div class="box">
+                    <div class="box-header">
+                        <h3>
+                            Happy B-day,
+                            <span id="info-name">Ngọc Quang</span>
+                                <img src="./images/party.png" alt="">
+                        </h3>
+                        <div class="birthday" id="info-birthday"></div>
+                        <div class="birthday-greetings" id="birthday-greetings"></div>
+
+                    </div>
+                    <div class="box-body">
+                        <div class="collection" id="collection"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- end main screen -->
+        </div>
+    </div>
+    <!-- end main content -->
+
+    <!-- js -->
+    <script src="./js/app.js"></script>
+</body>
+</html>
