@@ -51,70 +51,75 @@ input:hover, input:focus {
 
 a {
     text-decoration: none;
+    display: inline-block;
 }
 
-nav {
-    width: 100%;
+.nav-wrapper {
     background-color: var(--bg-content);
+    box-shadow: var(--shadow);
     position: fixed;
     top: 0;
-    box-shadow: var(--shadow);
+    left: 0;
+    width: 100%;
+    padding: 0 30px;
     z-index: 99;
 }
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
+
+.nav {
+    height: var(--nav-height);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
-    height: var(--nav-height);
 }
 
-.nav-logo {
+.logo {
+    color: var(--color-txt);
     font-size: var(--font-size-lg);
     font-weight: 900;
-    color: var(--color-txt);
 }
-.nav-logo i {
+.logo i {
     color: var(--color-btn);
 }
+
 
 .darkmode-switch {
     --width: 60px;
     --height: 20px;
     width: var(--width);
     height: var(--height);
-    background-color: var(--bg-body);
-    border-radius: 30px;
+    background-color: lightslategray;
+    border-radius: 10px;
     position: relative;
     cursor: pointer;
 }
 
 .darkmode-switch span {
-    width: calc(var(--height) * 2);
-    height: calc(var(--height) * 2);
-    background-color: var(--bg-body);
     display: inline-grid;
     place-items: center;
+    height: calc(var(--height) * 2);
+    width: calc(var(--height) * 2);
     border-radius: 50%;
+    background-color: var(--color-txt);
+    color: var(--bg-content);
+    font-size: 2rem;
     position: absolute;
     left: 0;
     top: calc(-1 * var(--height) / 2);
+    transition: left 0.3s ease-in-out;
 }
-
-.darkmode-switch span i {
-    font-size: var(--font-size-lg);
+.darkmode-switch.dark span {
+    left: calc(var(--width) - var(--height) * 2);
+    background-color: var(--bg-body);
     color: var(--color-txt);
-}
 
+}
 .darkmode-switch span .bxs-moon {
     display: none;
 }
 .darkmode-switch.dark span .bxs-moon {
     display: inline-block;
 }
-.darkmode-switch.dark span .bxs-sun{
+.darkmode-switch.dark span .bxs-sun {
     display: none;
 }
 
