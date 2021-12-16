@@ -239,22 +239,96 @@ a {
     font-size: var(--font-size);
 }
 
-.box-body {
-    display: grid;
+.btn-play {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--bg-body);
+    display: inline-grid;
     place-items: center;
+}
+
+.btn-play i {
+    font-size: 1.35rem;
+}
+
+.btn-play .bx-pause {
+    display: none;
+}
+
+.btn-play.isPlaying .bx-pause {
+    display: inline-block;
+}
+
+.btn-play.isPlaying .bx-play {
+    display: none;
+}
+
+.box-body {
+    
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.day.ring, .hour.ring, .minute.ring, .second.ring {
+    animation: bounce .5s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(1px);
+    }
+    50% {
+        transform: translateX(-1px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.countdown > div + div {
+    margin-left: 30px;
+}
+
+.countdown div {
+    position: relative;
+    font-size: var(--font-size-xl)
+}
+
+.memories {
     max-width: 500px;
     margin: 0 auto;
 }
 
-.collection {
+.img-thumb {
+    background-color: white;
+    padding: 5px;
+    height: 300px;
+}
+
+.memories img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* .collection {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 15px 370px 15px;
+    grid-template-rows: 15px 350px 15px;
     gap: 10px;
 }
 
 .collection .item {
     border-radius: 10px;
+    background-color: var(--bg-body);
     overflow: hidden;
 }
 
@@ -276,7 +350,7 @@ a {
 }
 .item-4 {
     grid-row: 2 / 4;
-}
+} */
 
 .footer {
     position: fixed;
@@ -291,10 +365,11 @@ a {
     font-size: var(--font-size);
     font-weight: 700;
     z-index: 99;
+    font-family: 'Cairo', sans-serif;
+    line-height: 1;
 }
 
 .footer a {
-    display: block;
     color: var(--color-btn);
 }
 

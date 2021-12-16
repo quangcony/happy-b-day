@@ -8,15 +8,18 @@ const main_screen = document.querySelector('#main-screen')
 const name_input = document.querySelector('#input-name')
 const pass_input = document.querySelector('#input-password')
 
+const audio = document.querySelector('#birthday-greetings-audio')
+
+var countDown
+
 const users = [
     {
         name: "Ngọc Quang",
         password: "13102001",
         birthday: "2001/10/13",
         birthday_En: "13 Oct 2001",
-        paths: ['./images/1 (2).jpg', './images/1 (1).jpg',
-         './images/1 (3).jpg', './images/1 (4).jpg'],
-        bd_greetings: "lời chúc mừng sinh nhật",
+        path: '',
+        audio: ''
     },
 
     {
@@ -24,36 +27,54 @@ const users = [
         password: "17122001",
         birthday: "2001/12/17",
         birthday_En: "17 Dec 2001",
-        paths: ['https://kenh14cdn.com/thumb_w/660/203336854389633024/2021/12/8/v-bts-1-1638898969121515788442.jpg', 'https://scontent.fdad3-2.fna.fbcdn.net/v/t1.18169-9/c0.53.480.480a/s851x315/19260501_125463468037230_6485443371079209673_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=da31f3&_nc_ohc=soYF5zU9tyQAX_SUzlJ&tn=A-vkNrbUt3hg3VdY&_nc_ht=scontent.fdad3-2.fna&oh=00_AT-AZWXdoYr_d_rhCHkWdj_bFtUrzbPSkUDF8vzKaUUCwA&oe=61DF225D',
-         'https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1603095343/uj1ekhsjb7nqvfhfmzho.jpg', 'https://media-cdn.laodong.vn/Storage/NewsPortal/2020/8/21/829816/Ji-Chang-Wook.jpg'],
-        bd_greetings: "lời chúc mừng sinh nhật",
+        path: './images/klinh.jpg',
+        audio: './audios/hpbd.mp3'
+    },
+
+    {
+        name: "Anh Việt",
+        password: "04052001",
+        birthday: "2001/05/04",
+        birthday_En: "04 May 2001",
+        path: '',
+        audio: ''
     }
+
 ]
 
-const startParty = () => {
+const startParty = (user) => {
     loggon_screen.classList.remove('active')
     main_screen.classList.add('active')
+
+    loadInfo(user)
 }
 
 loadInfo = (user) => {
 
     // get age to logo
-    document.querySelector('#age').textContent = getAge(user.birthday)
-
     document.querySelector('#info-name').textContent = user.name
     document.querySelector('#info-birthday').textContent = user.birthday_En
-    document.querySelector('#birthday-greetings').textContent = user.bd_greetings
-    document.querySelector('#collection').innerHTML = ''
+    document.querySelector('#birthday-greetings-audio').src = user.audio
+    document.querySelector('#img-thumb img').src = user.path
 
-    user.paths.forEach((e, i) => {
-        let row =  `
-            <div class="item item-${i + 1}">
-                <img src="${e}" alt="">
-            </div>
-        `
-        document.querySelector('#collection').innerHTML += row
+    // document.querySelector('#collection').innerHTML = ''
 
-    })
+    // user.paths.forEach((e, i) => {
+    //     let row =  `
+    //         <div class="item item-${i + 1}">
+    //             <img src="${e}" alt="">
+    //         </div>
+    //     `
+    //     document.querySelector('#collection').innerHTML += row
+
+    // })
+
+    var birthday = user.birthday_En.substring(0, 6)
+
+    countDown = setInterval(() => {
+        loadCountDown(birthday)
+        document.querySelector('#age').textContent = getAge(user.birthday)
+    }, 1000)
 
 }
 
@@ -68,13 +89,65 @@ getAge = (date) => {
     return age;
 }
 
+initCountDown = (distance) => {
+
+    var second = 1000
+    var minute = second * 60
+    var hour = minute * 60
+    var day = hour * 24
+
+    var d = Math.floor(distance / (day))
+    var h = Math.floor((distance % (day)) / (hour))
+    var m = Math.floor((distance % (hour)) / (minute))
+    var w = Math.floor((distance % (minute)) / second)
+
+    document.querySelector('#day').textContent = d + 'd'
+    document.querySelector('#hour').textContent = h + 'h'
+    document.querySelector('#minute').textContent = m + 'm'
+    document.querySelector('#seconds').textContent = w + 's'
+
+    if (d <= 0) document.querySelector('#day').classList.remove('ring')
+    if (h <= 0) document.querySelector('#hour').classList.remove('ring')
+    if (m <= 0) document.querySelector('#minute').classList.remove('ring')
+    if (w <= 0) document.querySelector('#seconds').classList.remove('ring')
+}
+
+loadCountDown = (birthday) => {
+
+    var nowYear = new Date().getFullYear()
+    var countDate = new Date(`${birthday}, ${nowYear} 00:00:00`).getTime()
+
+    var now = new Date().getTime()
+
+    var distance = countDate - now
+
+    if (distance <= 0) {
+
+        // nowYear ++;
+        // countDate = new Date(`${birthday}, ${nowYear} 00:00:00`).getTime()
+        // now = new Date().getTime()
+        // distance = countDate - now
+
+        // stop time
+        clearInterval(countDown)
+
+        document.querySelector('#day').textContent = 0 + 'd'
+        document.querySelector('#hour').textContent = 0 + 'h'
+        document.querySelector('#minute').textContent = 0 + 'm'
+        document.querySelector('#seconds').textContent = 0 + 's'
+
+    } else {
+        initCountDown(distance)
+    }
+
+}
+
 // button event
 document.querySelector('#btn-loggon').addEventListener('click', () => {
     if(name_input.value.trim().length > 0 && pass_input.value.trim().length > 0) {
         users.map(user => {
             if(name_input.value === user.name && pass_input.value === user.password) {
-                loadInfo(user)
-                startParty()
+                startParty(user)
             } else {
                 name_input.classList.add('input-err')
                 pass_input.classList.add('input-err')
@@ -101,9 +174,29 @@ document.querySelector('#btn-loggon').addEventListener('click', () => {
     }
 })
 
+document.querySelector('#btn-play').addEventListener('click', () => {
+    if(!audio.paused) {
+        audio.pause()
+        document.querySelector('#btn-play').classList.remove('isPlaying')
+    }else {
+        audio.play()
+        document.querySelector('#btn-play').classList.add('isPlaying')
+    }
+})
+
+audio.addEventListener('ended', () => {
+    document.querySelector('#btn-play').classList.remove('isPlaying')
+})
+
 // dark mode switch
 document.querySelector('#darkmode-switch').addEventListener('click', () => {
     document.querySelector('body').classList.toggle('dark')
     document.querySelector('#darkmode-switch').classList.toggle('dark')
 
 })
+
+const init = () => {
+
+}
+
+init()

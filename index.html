@@ -45,7 +45,7 @@
             <!-- log on screen -->
             <div class="loggon-screen active" id="loggon-screen">
                 <input type="text" placeholder="ex: Ngọc Quang" maxlength="11" class="input-name" id="input-name">
-                <input type="password" placeholder="ex: 13102001" class="input-password" id="input-password">
+                <input type="password" placeholder="ex: ddmmyyyy" class="input-password" id="input-password">
                 <div class="btn" id="btn-loggon">Log on</div>
             </div>
             <!-- end log on screen -->
@@ -56,15 +56,33 @@
                     <div class="box-header">
                         <h3>
                             Happy B-day,
-                            <span id="info-name">Ngọc Quang</span>
+                            <span id="info-name"></span>
                                 <img src="./images/party.png" alt="">
                         </h3>
                         <div class="birthday" id="info-birthday"></div>
-                        <div class="birthday-greetings" id="birthday-greetings"></div>
-
+                        <div class="birthday-greetings" id="birthday-greetings">
+                            khúc hát mừng sinh nhật
+                            <span class="btn-play" id="btn-play">
+                                <i class="bx bx-play bx-tada"></i>
+                                <i class="bx bx-pause bx-tada"></i>
+                            </span>
+                            <audio src="" id="birthday-greetings-audio"></audio> 
+                        </div>
                     </div>
                     <div class="box-body">
-                        <div class="collection" id="collection"></div>
+                        Count Down To Your Birthday
+                        <div class="countdown" id="countdown">
+                            <div class="day ring" id="day">0d</div>
+                            <div class="hour ring" id="hour">0h</div>
+                            <div class="minute ring" id="minute">0m</div>
+                            <div class="second ring" id="seconds">0s</div>
+                        </div>
+
+                        <div class="memories">
+                            <figure class="img-thumb" id="img-thumb">
+                                <img src="" alt="">
+                            </figure>                           
+                        </div>
                     </div>
                 </div>
             </div>
