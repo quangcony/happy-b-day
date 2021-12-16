@@ -317,7 +317,6 @@ a {
     background-color: white;
     padding: 5px;
     height: 280px;
-    display: block;
 }
 
 .img-thumb img {
@@ -427,6 +426,10 @@ a {
 
     .screen {
        max-width: unset;
+    }
+
+    .img-thumb {
+        height: 240px;
     }
 }
 
