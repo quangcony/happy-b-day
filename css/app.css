@@ -246,6 +246,7 @@ a {
     background-color: var(--bg-body);
     display: inline-grid;
     place-items: center;
+    cursor: pointer;
 }
 
 .btn-play i {
@@ -271,7 +272,7 @@ a {
 .countdown {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .day.ring, .hour.ring, .minute.ring, .second.ring {
@@ -303,11 +304,12 @@ a {
 }
 
 .memories {
+    position: relative;
     max-width: 500px;
     margin: 0 auto;
     visibility: hidden;
     opacity: 0;
-    transition: all 3s ease-in-out;
+    transition: all 2s ease-in-out;
 }
 
 .memories.active {
@@ -318,13 +320,34 @@ a {
 .img-thumb {
     background-color: white;
     padding: 5px;
-    height: 300px;
+    height: 280px;
+    display: block;
 }
 
-.memories img {
+.img-thumb img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.b-greetings {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgb(0 0 0 / 90%);
+    display: grid;
+    place-items: center;
+    padding: 30px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.memories:hover .b-greetings, .memories:focus .b-greetings{
+    opacity: 1;
+    visibility: visible;
 }
 
 /* .collection {

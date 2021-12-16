@@ -19,7 +19,8 @@ const users = [
         birthday: "2001/10/13",
         birthday_En: "13 Oct 2001",
         path: '',
-        audio: ''
+        audio: './audios/hpbd.mp3',
+        greetings: ''
     },
 
     {
@@ -28,7 +29,8 @@ const users = [
         birthday: "2001/12/17",
         birthday_En: "17 Dec 2001",
         path: './images/klinh.jpg',
-        audio: './audios/hpbd.mp3'
+        audio: './audios/hpbd.mp3',
+        greetings: 'chúc mừng sinh nhật Kiều Linh. chúc Kiều Linh tuổi mới ăn mau chóng lép, sức khỏe dồi dào, thành công rực rỡ.'
     },
 
     {
@@ -37,7 +39,8 @@ const users = [
         birthday: "2001/05/04",
         birthday_En: "04 May 2001",
         path: '',
-        audio: ''
+        audio: './audios/hpbd.mp3',
+        greetings: ''
     }
 
 ]
@@ -56,6 +59,7 @@ loadInfo = (user) => {
     document.querySelector('#info-birthday').textContent = user.birthday_En
     document.querySelector('#birthday-greetings-audio').src = user.audio
     document.querySelector('#img-thumb img').src = user.path
+    document.querySelector('#b-greetings').textContent = user.greetings
 
     // document.querySelector('#collection').innerHTML = ''
 
@@ -115,7 +119,7 @@ initCountDown = (distance) => {
 loadCountDown = (birthday) => {
 
     var nowYear = new Date().getFullYear()
-    var countDate = new Date(`16 Dec, ${nowYear} 20:26:00`).getTime()
+    var countDate = new Date(`${birthday}, ${nowYear} 00:00:00`).getTime()
 
     var now = new Date().getTime()
 
