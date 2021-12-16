@@ -305,6 +305,14 @@ a {
 .memories {
     max-width: 500px;
     margin: 0 auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 3s ease-in-out;
+}
+
+.memories.active {
+    visibility: visible;
+    opacity: 1;
 }
 
 .img-thumb {

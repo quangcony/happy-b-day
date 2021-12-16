@@ -115,7 +115,7 @@ initCountDown = (distance) => {
 loadCountDown = (birthday) => {
 
     var nowYear = new Date().getFullYear()
-    var countDate = new Date(`${birthday}, ${nowYear} 00:00:00`).getTime()
+    var countDate = new Date(`16 Dec, ${nowYear} 20:26:00`).getTime()
 
     var now = new Date().getTime()
 
@@ -136,6 +136,8 @@ loadCountDown = (birthday) => {
         document.querySelector('#minute').textContent = 0 + 'm'
         document.querySelector('#seconds').textContent = 0 + 's'
 
+        document.querySelector('#memories').classList.add('active')
+
     } else {
         initCountDown(distance)
     }
@@ -145,8 +147,8 @@ loadCountDown = (birthday) => {
 // button event
 document.querySelector('#btn-loggon').addEventListener('click', () => {
     if(name_input.value.trim().length > 0 && pass_input.value.trim().length > 0) {
-        users.map(user => {
-            if(name_input.value === user.name && pass_input.value === user.password) {
+        users.forEach(user => {
+            if(name_input.value.trim() === user.name && pass_input.value.trim() === user.password) {
                 startParty(user)
             } else {
                 name_input.classList.add('input-err')
