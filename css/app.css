@@ -265,10 +265,6 @@ a {
     display: none;
 }
 
-.box-body {
-    
-}
-
 .countdown {
     display: flex;
     justify-content: center;
@@ -342,12 +338,15 @@ a {
     padding: 30px;
     opacity: 0;
     visibility: hidden;
+    transform-origin: center;
+    transform: scale(0);
     transition: all 0.3s ease;
 }
 
 .memories:hover .b-greetings, .memories:focus .b-greetings{
     opacity: 1;
     visibility: visible;
+    transform: scale(1);
 }
 
 /* .collection {
