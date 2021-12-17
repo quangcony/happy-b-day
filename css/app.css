@@ -424,6 +424,11 @@ a {
         height: 50px;
     }
 
+    .main {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
     .screen {
        max-width: unset;
     }
