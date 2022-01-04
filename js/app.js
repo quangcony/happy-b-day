@@ -47,6 +47,7 @@ const users = [
 ]
 
 const startParty = (user) => {
+
     loggon_screen.classList.remove('active')
     main_screen.classList.add('active')
 
