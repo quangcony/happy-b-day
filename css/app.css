@@ -232,7 +232,9 @@ a {
     height: 100%;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
-    
+    display: grid;
+    place-items: center;
+
 }
 
 .main-screen .box{
@@ -375,6 +377,11 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.footer.active {
+    display: none;
+    position: none;
 }
 
 .footer a {

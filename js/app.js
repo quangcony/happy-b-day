@@ -4,6 +4,7 @@
 // screen
 const loggon_screen = document.querySelector('#loggon-screen')
 const main_screen = document.querySelector('#main-screen')
+const footer = document.querySelector('#footer')
 
 const name_input = document.querySelector('#input-name')
 const pass_input = document.querySelector('#input-password')
@@ -48,6 +49,8 @@ const users = [
 const startParty = (user) => {
     loggon_screen.classList.remove('active')
     main_screen.classList.add('active')
+
+    footer.classList.add('active')
 
     loadInfo(user)
 }
