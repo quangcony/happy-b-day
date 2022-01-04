@@ -40,7 +40,7 @@ const users = [
         birthday_En: "04 May 2001",
         path: '',
         audio: './audios/hpbd.mp3',
-        greetings: ''
+        greetings: 'Con người, có thể thua cả trăm lần. Nhưng mà, nhất định phải thắng được trận cuối cùng.'
     }
 
 ]
