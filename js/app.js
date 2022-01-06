@@ -11,6 +11,8 @@ const pass_input = document.querySelector('#input-password')
 
 const audio = document.querySelector('#birthday-greetings-audio')
 
+const swiper_wrapper = document.querySelector('#swiper-wrapper')
+
 var countDown
 
 const users = [
@@ -19,9 +21,8 @@ const users = [
         password: "13102001",
         birthday: "2001/10/13",
         birthday_En: "13 Oct 2001",
-        path: '',
+        paths: [],
         audio: './audios/hpbd.mp3',
-        greetings: ''
     },
 
     {
@@ -29,9 +30,8 @@ const users = [
         password: "17122001",
         birthday: "2001/12/17",
         birthday_En: "17 Dec 2001",
-        path: './images/klinh.jpg',
+        paths: ['./images/klinh.jpg', './images/klinh_2.jpg', './images/klinh_3.jpg', './images/klinh_4.jpg'],
         audio: './audios/hpbd.mp3',
-        greetings: 'chúc mừng sinh nhật Kiều Linh. chúc Kiều Linh tuổi mới ăn mau chóng lép, sức khỏe dồi dào, thành công rực rỡ.'
     },
 
     {
@@ -39,9 +39,8 @@ const users = [
         password: "04052001",
         birthday: "2001/05/04",
         birthday_En: "04 May 2001",
-        path: '',
+        paths: [],
         audio: './audios/hpbd.mp3',
-        greetings: 'Con người, có thể thua cả trăm lần. Nhưng mà, nhất định phải thắng được trận cuối cùng.'
     }
 
 ]
@@ -62,8 +61,29 @@ loadInfo = (user) => {
     document.querySelector('#info-name').textContent = user.name
     document.querySelector('#info-birthday').textContent = user.birthday_En
     document.querySelector('#birthday-greetings-audio').src = user.audio
-    document.querySelector('#img-thumb img').src = user.path
-    document.querySelector('#b-greetings').textContent = user.greetings
+
+    const pathHtml = user.paths.map((path, i) => `
+            <div class="swiper-slide">
+                <img src="${path}"">
+            </div>`
+    )
+
+    swiper_wrapper.innerHTML = ''
+    swiper_wrapper.innerHTML += pathHtml
+
+    var swiper = new Swiper(".swiper", {
+        effect: "cards",
+        pagination: {
+            el: ".swiper-pagination",
+            dynamicBullets: true,
+        },
+        breakpoints: {
+            800: {
+
+            }
+        }
+    });
+
 
     // document.querySelector('#collection').innerHTML = ''
 

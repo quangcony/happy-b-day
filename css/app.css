@@ -235,10 +235,6 @@ a {
     transition: transform 0.3s ease-in-out;
 }
 
-.main-screen .banner {
-    height: var(--nav-height)
-}
-
 .main-screen .box{
     padding: 10px;
     width: 100%;
@@ -250,10 +246,6 @@ a {
 
 .box-header {
     margin-bottom: 20px;
-}
-
-.birthday-greetings {
-    font-size: var(--font-size);
 }
 
 .btn-play {
@@ -318,51 +310,57 @@ a {
 
 .memories {
     position: relative;
+}
+
+.memories p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    font-size: var(--font-size-xl);
+    opacity: 1;
+    visibility: visible;
+    transition: all 2s ease;
+}
+
+.memories.active .swiper{
+    visibility: visible;
+    opacity: 1;
+}
+.memories.active p{
+    visibility: hidden;
+    opacity: 0;
+}
+
+.swiper {
+    width: 80%;
+    height: 280px;
+    background-color: var(--bg-body);
     visibility: hidden;
     opacity: 0;
     transition: all 2s ease-in-out;
 }
 
-.memories.active {
-    visibility: visible;
-    opacity: 1;
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
 }
 
-.img-thumb {
-    background-color: white;
-    padding: 5px;
-    width: 270px;
-    height: 270px;
-    margin: 0 auto;
-}
 
-.img-thumb img {
+.swiper-slide img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.b-greetings {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background-color: rgb(0 0 0 / 90%);
-    display: grid;
-    place-items: center;
-    padding: 30px;
-    opacity: 0;
-    visibility: hidden;
-    transform-origin: center;
-    transform: scale(0);
-    transition: all 0.3s ease;
-}
-
-.memories:hover .b-greetings, .memories:focus .b-greetings{
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1);
+.swiper-pagination-bullet-active {
+    background-color: var(--color-txt);
 }
 
 .footer {
@@ -401,6 +399,14 @@ a {
         --font-size-lg: 1.5rem;
         --font-size-xl: 2rem;
 
+    }
+
+    .main-screen .banner {
+        height: var(--nav-height)
+    }
+
+    .swiper {
+        height: 240px;
     }
 
     .nav-wrapper {
