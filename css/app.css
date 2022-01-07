@@ -40,7 +40,7 @@ body, html {
     color: var(--color-txt);
     position: relative;
     height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 input {
@@ -142,7 +142,7 @@ a {
 }
 
 .main {
-
+    position: relative;
     height: 100vh;
     padding: var(--nav-height) 0;
     display: grid;
@@ -180,7 +180,8 @@ a {
     margin-top: 20px;
 }
 
-.input-name, .input-password {
+.input-name,
+.input-password {
     width: 280px;
     height: 80px;
     font-size: var(--font-size);
@@ -363,6 +364,27 @@ a {
     background-color: var(--color-txt);
 }
 
+.main .decor {
+    --width: 150px;
+    position: absolute;
+    width: var(--width);
+    height: var(--width);
+    top: var(--nav-height);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.decor-left {
+    left: 0;
+    background-image: url(../images/decor_2.png);
+}
+
+.decor-right {
+    right: 0;
+    background-image: url(../images/decor_1.png);
+}
+
 .footer {
     position: fixed;
     left: 0;
@@ -390,6 +412,18 @@ a {
     margin-left: 5px;
 }
 
+@media only screen and (min-width: 641px) and (max-width: 1007px) {
+    .main .decor {
+        --width: 250px;
+    }
+}
+
+@media only screen and (min-width: 1008px){
+    .main .decor {
+        --width: 350px;
+    }
+}
+
 /* medium screen */
 @media only screen and (max-width: 800px) {
     :root {
@@ -399,10 +433,6 @@ a {
         --font-size-lg: 1.5rem;
         --font-size-xl: 2rem;
 
-    }
-
-    .main-screen .banner {
-        height: var(--nav-height)
     }
 
     .swiper {

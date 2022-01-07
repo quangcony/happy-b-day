@@ -36,9 +36,9 @@ const users = [
 
     {
         name: "Anh Việt",
-        password: "04052001",
-        birthday: "2001/05/04",
-        birthday_En: "04 May 2001",
+        password: "05042001",
+        birthday: "2001/04/05",
+        birthday_En: "05 Apr 2001",
         paths: [],
         audio: './audios/hpbd.mp3',
     }
