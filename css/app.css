@@ -243,6 +243,7 @@ a {
     text-align: center;
     background-color: var(--bg-content);
     border-radius: 10px;
+    position: relative;
 }
 
 .box-header {
@@ -313,33 +314,14 @@ a {
     position: relative;
 }
 
-.memories p {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    place-items: center;
-    font-size: var(--font-size-xl);
-    opacity: 1;
-    visibility: visible;
-    transition: all 2s ease;
-}
-
 .memories.active .swiper{
     visibility: visible;
     opacity: 1;
-}
-.memories.active p{
-    visibility: hidden;
-    opacity: 0;
 }
 
 .swiper {
     width: 80%;
     height: 280px;
-    background-color: var(--bg-body);
     visibility: hidden;
     opacity: 0;
     transition: all 2s ease-in-out;
@@ -349,12 +331,13 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 18px;
+    /* border-radius: 18px; */
+    background-color: #fff;
+    padding: 5px;
 }
 
 
 .swiper-slide img {
-    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -365,24 +348,39 @@ a {
 }
 
 .main .decor {
-    --width: 150px;
     position: absolute;
-    width: var(--width);
-    height: var(--width);
-    top: var(--nav-height);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+    display: none;
 }
 
 .decor-left {
     left: 0;
-    background-image: url(../images/decor_2.png);
+    bottom: 0;
+    width: 350px;
+    height: 200px;
+    background-image: url(../images/gifts.png);
 }
 
 .decor-right {
     right: 0;
-    background-image: url(../images/decor_1.png);
+    top: var(--nav-height);
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/balloon.gif);
+}
+
+.box .overlay-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-image: url(../images/decor-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    pointer-events: none;
 }
 
 .footer {
@@ -413,14 +411,12 @@ a {
 }
 
 @media only screen and (min-width: 641px) and (max-width: 1007px) {
-    .main .decor {
-        --width: 250px;
-    }
+
 }
 
 @media only screen and (min-width: 1008px){
     .main .decor {
-        --width: 350px;
+        display: block;
     }
 }
 
