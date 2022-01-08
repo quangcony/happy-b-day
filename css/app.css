@@ -357,7 +357,7 @@ a {
 
 .decor-left {
     left: 0;
-    bottom: 0;
+    bottom: var(--nav-height);
     width: 350px;
     height: 200px;
     background-image: url(../images/gifts.png);
@@ -393,15 +393,9 @@ a {
     color: var(--color-txt);
     font-size: var(--font-size);
     z-index: 99;
-    /* font-family: var(--font-family-1); */
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.footer.active {
-    display: none;
-    position: none;
 }
 
 .footer a {
